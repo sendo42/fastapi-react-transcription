@@ -21,3 +21,7 @@ UPLOAD_DIR = Path("./input")
 async def uploadAudio(file: UploadFile = File(...)):
     print("成功")
     return {"filename" : file.filename}
+
+
+# https://teratail.com/questions/er0agjqqm8qeam
+
