@@ -9,3 +9,19 @@ testの方は書き方がよくわかってないのでしばらくこれで様�
 curl -X POST "localhost:8000/uploadAudio" \
     -F "file=@test.wav"
 https://weblabo.oscasierra.net/curl-post/
+
+
+これ、turbo以上のモデルくらいから文字起こしがよくなる。
+ただ、8GB以上のRAMを持っていないと使えないので注意。
+
+https://github.com/openai/whisper
+文字起こしの精度や基本的な使い方はこれに基づいてできる。
+
+
+file: UploadFile = File(...)で引数にしてpostすればよさそう。
+高速化するためには、受け取ったファイルをdbにぶちこんで直接読み込むか？
+ある程度サイズのあるファイルは、メモリ確保したやつでやるか？
+そもそもpythonの変数のメモリ確保って動的なのか？スタック領域とかあるのかな？
+少なくとも今回でM2のMac 8GBではできなかったから、RAM16GB以上のこのPCかサーバーでやるしかない。
+
+もっとオプションとか調べて高速化と精度向上したい。
